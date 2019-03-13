@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Simulador</h2>
+
+    <form>
+
+        Quanto você perdeu até hoje?
+        <br>
+        <input type="number" id="perda">
+        <br>
+        Quantas vezes isso aconteceu? (Em meses)
+
+        <br>
+
+        <input type="number" id="mes">
+        
+        <br>
+
+   
+
+        Quantos hectares você tem?
+        
+        <br>
+        
+        <input type="number" id="ha">
+
+        <span>Um sensor cobre uma area de 6ha</span> 
+
+        <br><br>
+        <button type="button" onclick="calculo()">calcular</button>
+
+    </form>
+
+    <div id="mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calculo() {
+        var conta = perda.value * mes.value
+
+        var contaP = (ha.value * 1500)
+          
+          mensagem.innerHTML = `Você perdeu ${conta}, e podia ter evitado se tivesse investido ${contaP}`
+    }
+
+</script>
