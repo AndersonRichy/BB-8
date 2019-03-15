@@ -1,4 +1,4 @@
-create table sensor_feijao2 (
+create table sensor_feijao (
     idFeijao int primary key identity (100,10),
     nomeFeijao varchar(30),
     safras varchar(30),
@@ -6,9 +6,9 @@ create table sensor_feijao2 (
     temperatura int,
     umidade int
     );
-    select * from sensor_feijao2;
+    select * from sensor_feijao;
 
-insert into sensor_feijao2
+insert into sensor_feijao
             values  ('Carioca', 'Janeiro-Julho', 'Sul', 27, 98),
                     ('Preto', 'Julho-Outubro', 'Nordeste', 33, 64),
                     ('Fradinho', 'Abril-Julho', 'Sudeste', 19, 42),
