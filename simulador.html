@@ -1,57 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+         *{
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            overflow: auto;
+            max-height: 100%;
+            background-color: #fa8a11;
+        }
+
+        .container .formulario {
+            padding: 10px 20px;
+            background-color: #FFA543;
+        }
+
+        .container .label {
+            font-size: 1.5em;
+            font-weight: 100;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 4px 5px;
+            border: 0;
+            margin: 3px 4px;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+
+        .container button {
+            border: 0;
+            background-color: #0cb54b;
+            padding: 10px 15px;
+            margin: 5px 10px;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 1.5em;
+        }
+        
+        .container #mensagem {
+            padding: 10px 20px;
+        }
+
+        .column {
+            float: left;
+            width: 50%; 
+        }
+
+        .title {
+            font-size: 2.5em;
+            text-align: center;
+        }
+        .resultPerda, #investido, #economiaM {
+            font-size: 3.7em;
+            color: black;
+            visibility: hidden;
+        }
+    </style>
 </head>
+
 <body>
-    
-    <h2>Simulador</h2>
 
-    <form>
+    <div class="container">
 
-        Quanto você perdeu até hoje?
-        <br>
-        <input type="number" id="perda">
-        <br>
-        Quantas vezes isso aconteceu? (Em meses)
+        <div class="formulario column">
+            <form>
 
-        <br>
+                <h2 class="title">Simulador</h2>
 
-        <input type="number" id="mes">
-        
-        <br>
+                <span class="label">Quanto você perdeu de produção(em R$) até hoje?</span>
+                <input type="number" id="perda">
 
-   
+                <span class="label">Quantas vezes isso aconteceu? (Em meses)</span>
+                <input type="number" id="mes"><br>
 
-        Quantos hectares você tem?
-        
-        <br>
-        
-        <input type="number" id="ha">
 
-        <span>Um sensor cobre uma area de 6ha</span> 
 
-        <br><br>
-        <button type="button" onclick="calculo()">calcular</button>
+                <span class="label">Quantos hectares você tem?</span>
+                <input type="number" id="ha"><br>
 
-    </form>
+                <span class="label">Um sensor cobre uma area de 1ha</span><br>
 
-    <div id="mensagem"></div>
+                <button type="button" onclick="calculo()">Calcular</button>
+
+            </form>
+        </div>
+
+        <div id="mensagem" class="column">
+            <h2 class="title">Resultado</h2>
+
+            <span class="label">Você perdeu:</span>
+            <span id="perdaA" class="resultPerda">b</span>
+
+            <span class="label">E podia ter evitado, se tivesse investido:</span>
+            <span id="investido">b</span>
+
+            <span class="label">Economia de:</span>
+            <span id="economiaM">b</span>
+        </div>
+    </div>
+
+
 
 </body>
+
 </html>
 
 <script>
 
     function calculo() {
-        var conta = perda.value * mes.value
+        var perdido = perda.value * mes.value;
 
-        var contaP = (ha.value * 1500)
-          
-          mensagem.innerHTML = `Você perdeu ${conta}, e podia ter evitado se tivesse investido ${contaP}`
+        var investimento = (ha.value * 100);
+
+        var economia = perdido - investimento;
+
+        perdaA.innerHTML = `R$${perdido.toFixed(2)}`;
+        investido.innerHTML = `R$${investimento.toFixed(2)}`;
+        economiaM.innerHTML = `R$${economia.toFixed(2)}`;
+
+        perdaA.style.visibility = "visible";
+        investido.style.visibility = "visible";
+        economiaM.style.visibility = "visible";
+        // mensagem.innerHTML = `Você perdeu ${conta}, e podia ter evitado se tivesse investido ${contaP}`;
     }
 
 </script>
