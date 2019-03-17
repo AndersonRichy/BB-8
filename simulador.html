@@ -7,9 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-         *{
-            box-sizing: border-box;
-        }
         body {
             width: 100%;
             margin: 0;
@@ -18,7 +15,6 @@
         }
 
         .container {
-            overflow: auto;
             max-height: 100%;
             background-color: #fa8a11;
         }
@@ -58,11 +54,6 @@
             padding: 10px 20px;
         }
 
-        .column {
-            float: left;
-            width: 50%; 
-        }
-
         .title {
             font-size: 2.5em;
             text-align: center;
@@ -79,7 +70,7 @@
 
     <div class="container">
 
-        <div class="formulario column">
+        <div class="formulario">
             <form>
 
                 <h2 class="title">Simulador</h2>
@@ -102,7 +93,7 @@
             </form>
         </div>
 
-        <div id="mensagem" class="column">
+        <div id="mensagem">
             <h2 class="title">Resultado</h2>
 
             <span class="label">Você perdeu:</span>
